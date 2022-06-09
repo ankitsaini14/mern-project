@@ -15,8 +15,10 @@ const verifyToken = async (req, res, next) => {
     next();
 }
 catch(err){
-        res.status(401).send(err.message)
-        console.log(err);
+    const JWTError = req.error;
+  const ErrMssg = req.flash("err");
+  const ErrMssg2 = req.flash("err2");
+  return res.render("../admin/views/LoginForm.ejs", { ErrMssg, ErrMssg2, JWTError});
     }
 }
 
