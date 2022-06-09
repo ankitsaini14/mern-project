@@ -359,35 +359,3 @@ module.exports = {
   imageUpload,
 };
 
-/**
- * @WARNING read the comment before calling the function!!!!
- */
-
-//dont call this function or your db will be populated from index.txt
-const fillDB = async () => {
-  let readFile = await fs.readFileSync("index.txt", "utf-8");
-  readFile = readFile.split("comma");
-  let i = 1;
-  readFile.forEach(async (element) => {
-    return await UserModel.create(JSON.parse(element));
-  });
-};
-
-//Only call to create an admin
-const createUser = async () => {
-  try {
-    const password = await bcrypt.hash("Ankit@123", 12);
-    const user = {
-      fullname: "Ankit Saini",
-      email: "yugsaini143@gmail.com",
-      password: password,
-    };
-    let tasks = await AdminModel.create(user);
-    if (!tasks) {
-      return console.log("user not  created");
-    }
-    return console.log(user);
-  } catch (err) {
-    console.log(err);
-  }
-};

@@ -8,8 +8,14 @@
 
 
 
+<hr>
+<div style="display:flex;margin:auto;flex-direction: column;">
+  <img style="margin: auto; border-radius: 100%;"src="http://192.168.0.38:8080/<%=edit.image%>" width="350px" height='300px' >
+  <p style="margin: auto;">Profile Image</p>
+</div>
+<hr>
 <div class="col-md-6">
-  <form action="/imageUpload/<%=edituser.id%>" method="post" enctype="multipart/form-data">
+  <form action="/imageUpload/<%=edit.id%>" method="post" enctype="multipart/form-data">
     <div>
       <label for="image">Upload Image</label>
       <input type="file" id="image" 
@@ -18,21 +24,21 @@
       <div>
           <button type="submit">Upload Image</button>
       </div>
-    </form>
-    <img src="<%=edituser.image%>" alt="..." />
+    </form>    
   </div>
-  <form class="row g-3" method="post" action="/edituser/<%=edituser.id%>">
+  <hr><br>
+  <form class="row g-3" method="post" action="/edituser/<%=edit.id%>">
   <div class="col-md-6">
     <label for="inputName4" class="form-label">Full Name</label>
-    <input type="text" class="form-control" name="fullname" id="inputName4" value="<%=edituser.fullname%>">
+    <input type="text" class="form-control" name="fullname" id="inputName4" value="<%=edit.fullname%>">
   </div>
     <div class="col-md-6">
       <label for="inputEmail4" class="form-label">Email</label>
-      <input type="email" class="form-control" name="email" id="inputEmail4" value="<%=edituser.email%>">
+      <input type="email" class="form-control" name="email" id="inputEmail4" value="<%=edit.email%>">
     </div>
     <div class="col-md-6">
       <label for="inputPhone4" class="form-label">Phone Number</label>
-      <input type="text" class="form-control" name="phonenumber" id="inputPhone4" value="<%=edituser.phonenumber%>">
+      <input type="text" class="form-control" name="phonenumber" id="inputPhone4" value="<%=edit.phonenumber%>">
     </div>
     <div class="col-12">
       <button type="submit" class="btn btn-primary">Update</button>

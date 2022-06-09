@@ -28,7 +28,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
-      <img src="<%=admin.image%>" width="50px" alt="...">
+      <img style="border-radius: 100%;" src="<%=admin.image%>" width="70px" height='65px' alt="...">
 
     </div>
     <div class="w3-col s8 w3-bar">
@@ -151,14 +151,18 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <% let k = 0%>
       <% if(skipUser>0){ %>
       <li class="page-item"><a class="page-link" href="/dashboard/?skipUser=<%=skipUser-userPerPage<=0?0:skipUser-userPerPage%>&userPerPage=<%=userPerPage<0?0:userPerPage%>&searchUser=<%=searchUser%>">Previous</a></li>
-      <%}%>
+      <%}else{%>
+        <li ><a class="page-link" >Previous</a></li>
+    <%}%>
       <% for (let i = 1;i<=totalPages;i++){ %>
         <li class="page-item"><a class="page-link" href="/dashboard/?skipUser=<%=i==1?0:k%>&userPerPage=<%=userPerPage%>&searchUser=<%=searchUser%>"><%=i%></a></li>
         <% k+=userPerPage%>
       <%}%>
       <% if(skipUser<allUser.length-userPerPage){ %>
         <li class="page-item"><a id="nextbtn" class="page-link" href="/dashboard/?skipUser=<%=skipUser+userPerPage>allUser.length?allUser.length:skipUser+userPerPage%>&userPerPage=<%=userPerPage>allUser?allUser.length:userPerPage%>&searchUser=<%=searchUser%>">Next</a></li>
-        <%}%>
+        <%}else{%>
+          <li ><a class="page-link" >Next</a></li>
+          <%}%>
     </ul>
     <a href="/logOutApi"><Button class="btn btn-danger">Log Out</Button></a>
   </div>

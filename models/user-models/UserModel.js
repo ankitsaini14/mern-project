@@ -25,10 +25,10 @@ let UserSchema = new mongoose.Schema({
         type: String,
         default: new Date()
     },
-    // countrycode: {
-    //     type: Number,
-    //     required: true
-    // },
+    image:{
+        type: String,
+        default: 'fea08f8b1f84fd5d1d98050b30d100ba',
+    },
     isDeleted: {
         type: Boolean,
         default: false

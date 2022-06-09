@@ -1,55 +1,38 @@
 const express = require('express');
 const { getUser, 
     loginUser, 
-    updateUser, 
-    deleteUser, 
     homePage, 
-    forgotpassword, 
-    changePassword, 
-    createUser, 
+    forgotPassword, 
+    changePassword,  
     requestOtp, 
     getChangePassword, 
     dashboard, 
-    adduserForm, 
-    adduser,
-    deleteuser,
-    edituserform,
-    edituser,
-    viewform,
+    addUserForm, 
+    addUser,
+    deleteUser,
+    editUserForm,
+    editUser,
+    viewForm,
     logOutApi,
     imageUpload,
      } = require('../controller/task');
 const verifyToken = require('../middleware/verifyToken');
 const router = express.Router();
 
-
-// let storage = multer.diskStorage({
-//     destination: (req, file, cb) => {
-//         cb("null", 'uploads')
-//     },
-//     filename: (req, file, cb) => {
-//         cb(null, file.fieldname + '-' + Date.now())
-//     }
-// })
-// const upload = multer({storage: storage});
-
 router.get("/", homePage);
 router.get("/dashboard",verifyToken, dashboard);
-router.post('/createUser', createUser);
-router.get('/adduserform',verifyToken, adduserForm);
-router.get('/viewuserform/:id',verifyToken, viewform);
-router.get('/edituserform/:id',verifyToken, edituserform);
-router.post('/edituser/:id', edituser);
-router.post('/adduser', adduser);
+router.get('/adduserform',verifyToken, addUserForm);
+router.get('/viewuserform/:id',verifyToken, viewForm);
+router.get('/edituserform/:id',verifyToken, editUserForm);
+router.post('/edituser/:id', editUser);
+router.post('/adduser', addUser);
 router.post('/requestOtp', requestOtp);
-router.get('/forgotpassword', forgotpassword);
+router.get('/forgotpassword', forgotPassword);
 router.get('/changepassword', getChangePassword);
 router.post('/changepassword', changePassword);
 router.get("/tasks/:id",verifyToken, getUser);
 router.post("/logIn", loginUser);
-router.put("/tasks/:id", updateUser);
-router.delete("/tasks/:id", deleteUser);
-router.get("/delete/:id",verifyToken, deleteuser);
+router.get("/delete/:id",verifyToken, deleteUser);
 router.get("/logOutApi", logOutApi);
 router.post("/imageUpload/:id", imageUpload);
 

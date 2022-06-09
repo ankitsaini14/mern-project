@@ -30,7 +30,7 @@
         <p class="errmssg1"><%= ErrMssg2 %></p>
     </div>
     <div class="form-group mb-0 text-center">
-        <button id="submitLoginForm"  class="btn btn-primary btn-block" type="submit"> Log In</button>
+        <button id="submitLoginForm"  class="btn btn-primary btn-block" type="submit">Log In</button>
     </div>
   </div>
   <div class="card-footer text-muted">
@@ -42,7 +42,11 @@
   </div>
 </div>
 </form>
-
+  <script>
+    if(<%=JWTError%>){
+      window.alert(<%=JWTError%>)
+    }
+  </script>
 <style>
   body{
     background-image: url("https://images.pexels.com/photos/3297593/pexels-photo-3297593.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");

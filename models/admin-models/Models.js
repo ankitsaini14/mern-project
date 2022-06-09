@@ -17,7 +17,11 @@ let userSchema = new mongoose.Schema({
     },
     image:{
         type: String,
+        default: 'fea08f8b1f84fd5d1d98050b30d100ba',
+    },
+    phonenumber:{
+        type:String,
     }
 });
 
-module.exports = userSchema
+module.exports = mongoose.model("UserFields", userSchema)
